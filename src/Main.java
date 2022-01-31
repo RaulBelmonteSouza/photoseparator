@@ -7,6 +7,8 @@ import java.util.List;
 
 public class Main {
 
+    private static String originPath = "/teste";
+
     public static List<File> files = new ArrayList<>();
 
     public static void findAllFilesInFolder(File folder) {
@@ -47,7 +49,7 @@ public class Main {
 
     private static void moveFiles(List<File> files) throws IOException {
         for (File file : files) {
-            String target = "C:\\+originPath+\\" + readYear(file) + "\\" + readMonth(file) + "\\" + file.getName();
+            String target = "C:\\" + originPath + "\\" + readYear(file) + "\\" + readMonth(file) + "\\" + file.getName();
             File olfFile = new File(file.getAbsolutePath());
             File newFile = new File(target);
             newFile.mkdirs();
@@ -58,7 +60,6 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        String originPath = "/teste";
         File folder = new File(originPath);
 
         findAllFilesInFolder(folder);
