@@ -3,20 +3,16 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class Main {
 
     public static List<File> files = new ArrayList<>();
-    public static Set<String> years = new HashSet<>();
 
     public static void findAllFilesInFolder(File folder) {
         for (File file: folder.listFiles()) {
             if (!file.isDirectory()) {
                 files.add(file);
-                years.add(readYear(file));
             } else {
                 findAllFilesInFolder(file);
             }
